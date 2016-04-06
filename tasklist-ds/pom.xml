@@ -13,17 +13,19 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>net.lr</groupId>
-                <artifactId>bndrun-maven-plugin</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-export-maven-plugin</artifactId>
+                <version>3.2.0-SNAPSHOT</version>
                 <configuration>
-                    <bndrun>tasklist.bndrun</bndrun>
+                    <bndrun>
+                        <param>tasklist.bndrun</param>
+                    </bndrun>
                     <targetDir>.</targetDir>
                 </configuration>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>resolve</goal>
+                            <goal>export</goal>
                         </goals>
                     </execution>
                 </executions>
