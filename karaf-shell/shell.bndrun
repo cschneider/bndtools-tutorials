@@ -28,6 +28,5 @@
 
 
 -runrequires: \
-	osgi.identity;filter:='(osgi.identity=org.apache.karaf.shell.core)',\
 	osgi.identity;filter:='(osgi.identity=org.apache.karaf.shell.commands)',\
 	osgi.identity;filter:='(osgi.identity=org.apache.karaf.bundle.core)'
