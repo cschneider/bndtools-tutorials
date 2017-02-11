@@ -1,0 +1,33 @@
+-standalone: target/index.xml
+-runfw: org.apache.felix.framework;version=4
+-runee: JavaSE-1.8
+-runprovidedcapabilities: ${native_capability}
+
+-resolve.effective: active;skip:="osgi.service"
+
+-runproperties: \
+	org.osgi.framework.startlevel.beginning=100,\
+	felix.cm.loglevel=4,\
+	felix.fileinstall.log.level=4,\
+	karaf.systemBundlesStartLevel=0,\
+	org.ops4j.pax.logging.DefaultServiceLog.level=INFO,\
+	karaf.startLocalConsole=true,\
+	felix.fileinstall.dir=./etc,\
+	karaf.local.roles='admin,manager,viewer,systembundles',\
+	felix.fileinstall.noInitialDelay=true
+
+-runbundles: \
+	org.ops4j.pax.logging.pax-logging-api;version='[1.8.5,1.8.6)',\
+	jline;version='[2.14.1,2.14.2)',\
+	org.apache.felix.configadmin;version='[1.8.8,1.8.9)',\
+	org.apache.karaf.jaas.boot;version='[4.0.8,4.0.9)',\
+	org.apache.karaf.shell.commands;version='[4.0.8,4.0.9)',\
+	org.apache.karaf.shell.core;version='[4.0.8,4.0.9)',\
+	org.jledit.core;version='[0.2.1,0.2.2)',\
+	org.apache.karaf.bundle.core;version='[4.0.8,4.0.9)'
+
+
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=org.apache.karaf.shell.core)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.karaf.shell.commands)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.karaf.bundle.core)'
